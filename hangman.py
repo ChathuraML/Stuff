@@ -1,86 +1,15 @@
 import random
+from hangman_art import logo, hangman_stages
+from wordList import word_list
 
-hangman_stages = [
-    """
-     +---+
-     |   |
-         |
-         |
-         |
-         |
-    =========
-    """,
-    """
-     +---+
-     |   |
-     O   |
-         |
-         |
-         |
-    =========
-    """,
-    """
-     +---+
-     |   |
-     O   |
-     |   |
-         |
-         |
-    =========
-    """,
-    """
-     +---+
-     |   |
-     O   |
-    /|   |
-         |
-         |
-    =========
-    """,
-    """
-     +---+
-     |   |
-     O   |
-    /|\\  |
-         |
-         |
-    =========
-    """,
-    """
-     +---+
-     |   |
-     O   |
-    /|\\  |
-    /    |
-         |
-    =========
-    """,
-    """
-     +---+
-     |   |
-     O   |
-    /|\\  |
-    / \\  |
-         |
-    =========
-    """
-]
-
-word_list = ['aardvark','camel','baboon','jiraf','elephant','house']
-
+print(logo)
 guess_word = random.choice(word_list)
 
-#Created placeholder as below
-placeholder = []
-# for i in guess_word:
-#     placeholder.append("_")
-
-#improved placeholder creation as below:
+#Created placeholder
 placeholder = ['_'] * len(guess_word)
 
 placeholderdisplay = ''.join(placeholder)
 print(placeholderdisplay+"\n")
-
 
 already_guessed = []
 count = 0
