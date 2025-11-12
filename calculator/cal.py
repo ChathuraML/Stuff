@@ -49,9 +49,9 @@ while ans:
             n1 = float(input("Type the first number: "))
         else:
             print('''
-==========================
-   CALCULATOR CLOSED 🧮
-==========================
+                    ==========================
+                    CALCULATOR CLOSED 🧮
+                    ==========================
                   ''')
             break
     else:
