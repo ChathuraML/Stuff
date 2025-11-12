@@ -23,7 +23,7 @@ def find_highest_bidder(bidding_dic):
             winner = key
 
     print(f"The winner is {winner} with a bid of ${max}.")
-    
+
 auction = {}
 next = True
 while next:
@@ -40,5 +40,3 @@ while next:
         os.system('cls')
         find_highest_bidder(auction)
 
-
-#print(auction)
