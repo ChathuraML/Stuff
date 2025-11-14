@@ -13,48 +13,55 @@ def card_values(card):
 
 def total(player_total, com_total):
     if player_total > 21:
-            print("\nBust!, You went over.")
+            print("\n>>>>>>>>>>>You lose!!!, You went over.")
     else:
         if player_total > com_total:
-            print("\nYou won! :D")
+            print("\n>>>>>>>>>>>You won! :D")
         elif player_total < com_total:
-            print("\nYou lose! :(")
+            print("\n>>>>>>>>>>>You lose! :(")
         else:
-            print("\nIt's Tie, let's push")
+            print("\n>>>>>>>>>>>It's Tie, let's push")
 
-    print("\n^~~~~~~~~~~~~~~~~~~~END~~~~~~~~~~~~~~~~~^")
-
-   
-another_card = True
-
-while another_card:
-    n1 = random.choice(cards)
-    n2 = random.choice(cards)
-    total1 = card_values(n1) + card_values(n2)
-
-    if total1 > 21 and ("A" in [n1,n2]):
-        total1 -= 10
     
-    print(f"Your cards: [{n1}, {n2}], current score:  {total1}")
+def round():
+    another_card = True
+    while another_card:
+        n1 = random.choice(cards)
+        n2 = random.choice(cards)
+        total1 = card_values(n1) + card_values(n2)
 
-    com_n1 = random.choice(cards)
-    com_n2 = random.choice(cards)
-    com_total = card_values(com_n1) + card_values(com_n2)
-
-    print(f"Computer's first card: [{com_n1}]")
-
-    answer = input("\nType 'y' to get another card, type 'n' to pass: ")
-    print("\n")
-    if answer == 'y':
-        n3 = random.choice(cards)
-        total1 = total1 + card_values(n3)
-        print(f"Your final hand: [{n1}, {n2}, {n3}], final score:  {total1}")
-        print(f"Computer's final hand: [{com_n1}, {com_n2}], final score:  {com_total}")
-        total(total1, com_total)
-        break
-    else:
-        print(f"Computer's final hand: [{com_n1}, {com_n2}], final score:  {com_total}")
+        if total1 > 21 and ("A" in [n1,n2]):
+            total1 -= 10
+        
         print(f"Your cards: [{n1}, {n2}], current score:  {total1}")
-        total(total1, com_total)
-        another_card = False
 
+        com_n1 = random.choice(cards)
+        com_n2 = random.choice(cards)
+        com_total = card_values(com_n1) + card_values(com_n2)
+
+        print(f"Computer's first card: [{com_n1}]")
+
+        answer = input("\nPress 'Enter' key to get another card, type 'n' to pass: ")
+        print("\n")
+        if answer == "":
+            n3 = random.choice(cards)
+            total1 = total1 + card_values(n3)
+            print(f"Your final hand: [{n1}, {n2}, {n3}], final score:  {total1}")
+            print(f"Computer's final hand: [{com_n1}, {com_n2}], final score:  {com_total}")
+            total(total1, com_total)
+            break
+        else:
+            print(f"Your cards: [{n1}, {n2}], current score:  {total1}")
+            print(f"Computer's final hand: [{com_n1}, {com_n2}], final score:  {com_total}")
+            total(total1, com_total)
+            another_card = False
+    
+    next_round_answer = input("\nPress 'Enter' key for next round, or type 'e' to exit: ")
+    print("\n")
+    if next_round_answer == "":
+        round()
+    else:
+        print(">>>>>>>>>Have a great Day!!!!!<<<<<<<<<<<<")
+
+
+round()
