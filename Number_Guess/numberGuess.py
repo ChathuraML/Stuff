@@ -33,7 +33,6 @@ def check_input():
             return user_input
         except ValueError:
             print("Invalid input, please enter a number")
-            #user_input = int(input("Make a valid guess: "))
 
 #Game logic
 def game():
